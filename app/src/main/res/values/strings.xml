@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ChatMe</string>
+    <string name="login_label">Type your name</string>
+    <string name="login_edit_text_hint">First name &amp; last name</string>
+    <string name="login_button">Login</string>
+    <string name="send_message_hint">Type something</string>
+    <string name="send_button">SEND</string>
+    <string name="logout">Logout</string>
+</resources>

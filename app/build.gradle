@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.schibsted.chatme"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "com.schibsted.chatme.TestChatmeApplicationAndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        androidTest.java.srcDirs = ['src/androidTest/java', 'src/sharedTest/java']
+        test.java.srcDirs = ['src/test/java', 'src/sharedTest/java']
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+}
+
+//noinspection GroovyAssignabilityCheck
+configurations.all {
+    resolutionStrategy.force deps.supportannotations
+}
+
+dependencies {
+    // Support
+    compile deps.appcompat
+    compile deps.design
+    compile deps.cardview
+    compile deps.recyclerview
+
+    // RxJava
+    compile deps.rxjava
+    compile deps.rxandroid
+
+    // ButterKnife
+    compile deps.butterknife
+    annotationProcessor deps.butterknifecompiler
+
+    // Dagger
+    compile deps.dagger
+    annotationProcessor deps.daggercompiler
+    androidTestAnnotationProcessor deps.daggercompiler
+
+    // Gson
+    compile deps.gson
+
+    // Picasso
+    compile deps.picasso
+    compile deps.circularimageview
+
+    // Timber
+    compile deps.timber
+
+    // Retrofit
+    compile deps.retrofit
+    compile deps.retrofitgson
+    compile deps.retrofitadapter
+
+    // Unit
+    testCompile deps.junit
+    testCompile deps.robolectric
+    testCompile deps.mockito
+
+    // Integration
+    androidTestCompile deps.testrunner
+    androidTestCompile deps.testrules
+    androidTestCompile deps.espresso
+    androidTestCompile deps.mockito
+    androidTestCompile deps.dexmaker
+    androidTestCompile deps.dexmakermockito
+}

@@ -1,0 +1,71 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.2'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+}
+
+ext.deps = [
+        // Android
+        supportannotations: 'com.android.support:support-annotations:25.0.1',
+        appcompat: 'com.android.support:appcompat-v7:25.0.1',
+        design: 'com.android.support:design:25.0.1',
+        cardview: 'com.android.support:cardview-v7:25.0.1',
+        recyclerview: 'com.android.support:recyclerview-v7:25.0.1',
+
+        // RxJava
+        rxjava: 'io.reactivex:rxjava:1.2.3',
+        rxandroid: 'io.reactivex:rxandroid:1.2.1',
+
+        // ButterKnife
+        butterknife: 'com.jakewharton:butterknife:8.4.0',
+        butterknifecompiler: 'com.jakewharton:butterknife-compiler:8.4.0',
+
+        // Dagger
+        dagger: 'com.google.dagger:dagger:2.8',
+        daggercompiler: 'com.google.dagger:dagger-compiler:2.8',
+
+        // Gson
+        gson: 'com.google.code.gson:gson:2.6.2',
+
+        // Picasso
+        picasso: 'com.squareup.picasso:picasso:2.5.2',
+        circularimageview: 'de.hdodenhof:circleimageview:2.1.0',
+
+        // Timber
+        timber: 'com.jakewharton.timber:timber:4.5.1',
+
+        // Retrofit
+        retrofit: 'com.squareup.retrofit2:retrofit:2.0.2',
+        retrofitgson: 'com.squareup.retrofit2:converter-gson:2.0.2',
+        retrofitadapter: 'com.squareup.retrofit2:adapter-rxjava:2.0.0',
+
+        // Unit test dependencies
+        junit: 'junit:junit:4.12',
+        robolectric: 'org.robolectric:robolectric:3.1.4',
+        mockito: 'org.mockito:mockito-core:1.9.5',
+
+        // Integration test dependencies
+        testrunner: 'com.android.support.test:runner:0.3',
+        testrules: 'com.android.support.test:rules:0.3',
+        espresso: 'com.android.support.test.espresso:espresso-core:2.2',
+        dexmaker: 'com.google.dexmaker:dexmaker:1.2',
+        dexmakermockito: 'com.google.dexmaker:dexmaker-mockito:1.2',
+]
